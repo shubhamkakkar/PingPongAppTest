@@ -17,7 +17,7 @@ export default function Navigation() {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="SplashScreen" component={SplashScreen}  />
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen
           name="PlayersInformationScreen"
           component={PlayersInformationScreen}
