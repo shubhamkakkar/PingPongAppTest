@@ -12,8 +12,12 @@ const Stack = createStackNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="SplashScreen" component={SplashScreen} />
+      <Stack.Navigator
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="SplashScreen" component={SplashScreen}  />
         <Stack.Screen
           name="PlayersInformationScreen"
           component={PlayersInformationScreen}
