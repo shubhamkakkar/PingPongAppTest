@@ -4,9 +4,9 @@ import { CancelSaveButtonCombo, ScrollViewWithHeader } from '../../UI';
 import styles from './playersWinAddScreenStyleSheet';
 import { PlayersWins } from '../../Components';
 
-export default function PlayersWinAddScreen({ route: { params }, navigation }) {
+export default function PlayersWinAddScreen({ route: { params }, navigation: { navigate } }) {
   function restartGame() {
-    navigation.navigate('PlayersInformationScreen');
+    navigate('PlayersInformationScreen');
   }
   return (
     <ScrollViewWithHeader title="Add Wins">

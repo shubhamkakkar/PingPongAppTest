@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Alert, View } from 'react-native';
 import { CancelSaveButtonCombo, ScrollViewWithHeader } from '../../UI';
 import { PlayerInformationAdd } from '../../Components';
@@ -12,10 +12,11 @@ export default function PlayersInformationScreen({ navigation: { navigate } }) {
     setPlayerOneName('');
     setPlayerTwoName('');
   }
+
   function startGame() {
     const isPlayerOneNameFieldEmpty = !playerOneName.trim().length;
     const isPlayerTwoNameFieldEmpty = !playerTwoName.trim().length;
-    let errorFields:string[] = [];
+    let errorFields: string[] = [];
     if (isPlayerOneNameFieldEmpty) {
       errorFields = [...errorFields, 'Player One'];
     }
@@ -28,6 +29,7 @@ export default function PlayersInformationScreen({ navigation: { navigate } }) {
       navigate('PlayersWinAddScreen', { playerOneName: playerOneName.trim(), playerTwoName: playerTwoName.trim() });
     }
   }
+
   return (
     <ScrollViewWithHeader title="Players">
       <View style={styles.container}>

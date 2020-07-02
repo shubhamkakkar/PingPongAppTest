@@ -1,11 +1,15 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
   View,
   Text,
   TouchableOpacity,
   Animated,
+  Easing,
 } from 'react-native';
+import AnimatedLottieView from 'lottie-react-native';
 import styles from './playerWinStyleSheet';
+// @ts-ignore
+import partyLottie from '../../../assets/partyLottie.json';
 
 type TPlayerWin = {
     playerTitle: string;
@@ -14,22 +18,15 @@ type TPlayerWin = {
 }
 
 export default function PlayerWin({ playerTitle, wins, incrementWins }: TPlayerWin) {
-  const opacity = useMemo(() => new Animated.Value(0), []);
-  const scale = opacity.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, 1],
-  });
+  const progress = new Animated.Value(0);
   function incrementAndAnimateEmoji() {
-    Animated.spring(opacity, {
+    Animated.timing(progress, {
+      useNativeDriver: false,
       toValue: 1,
-      useNativeDriver: true,
+      duration: 2500,
+      easing: Easing.linear,
     }).start(() => {
       incrementWins();
-      Animated.timing(opacity, {
-        toValue: 0,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
     });
   }
   return (
@@ -44,19 +41,28 @@ export default function PlayerWin({ playerTitle, wins, incrementWins }: TPlayerW
           </TouchableOpacity>
         </View>
       </View>
+      <View style={{
+        alignItems: 'center',
+        marginBottom: 10,
+        marginLeft: 20,
+      }}
+      >
+        <AnimatedLottieView
+          style={{
+            width: 50,
+            height: 50,
+            justifyContent: 'center',
+          }}
+          source={partyLottie}
+          progress={progress}
+          loop
+        />
+      </View>
       <View style={styles.winsContainer}>
         <Text style={styles.winsText}>
           {wins}
         </Text>
       </View>
-      <Animated.View
-        style={[
-          styles.winEmojiContainer,
-          { opacity, transform: [{ scale }] },
-        ]}
-      >
-        <Text>win</Text>
-      </Animated.View>
     </View>
   );
 }
