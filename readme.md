@@ -10,7 +10,3 @@ Steps
   6.1 run `yarn start` followed by `yarn ios` in another terminal window // use respective npm commands if not using yarn
   
   
-  --- To run application in phone ---
-  1.Transfer the .apk file to your android device 
-  
-  NOTE: It will be a debug file to prevent check of google security,kindly ignore if you encouner any react-native deug error
