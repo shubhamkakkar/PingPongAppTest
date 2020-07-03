@@ -6,6 +6,7 @@ import {
   SplashScreen,
   PlayersInformationScreen,
   PlayersWinAddScreen,
+  WinnerScreen,
 } from '../Screens';
 
 const Stack = createStackNavigator();
@@ -25,6 +26,10 @@ export default function Navigation() {
         <Stack.Screen
           name="PlayersWinAddScreen"
           component={PlayersWinAddScreen}
+        />
+        <Stack.Screen
+          name="WinnerScreen"
+          component={WinnerScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>

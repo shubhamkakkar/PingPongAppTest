@@ -1,6 +1,4 @@
-import React, {
-  useEffect, useMemo, useRef, useState,
-} from 'react';
+import React, { useMemo } from 'react';
 import {
   View, Text, TouchableOpacity, Animated, Easing,
 } from 'react-native';
@@ -40,30 +38,20 @@ export default function PlayerWin({
     <View style={styles.container}>
       <View style={styles.titleAndButtonRow}>
         <View style={styles.rowContainer}>
-          <Text>Name: {playerTitle}</Text>
+          <Text style={styles.playerText}>Player: {playerTitle}</Text>
         </View>
         <View style={styles.rowContainer}>
           <TouchableOpacity
             style={styles.winButton}
             onPress={incrementAndAnimateEmoji}
           >
-            <Text>win</Text>
+            <Text style={styles.winButtonTitle}>Add Win</Text>
           </TouchableOpacity>
         </View>
       </View>
-      <View
-        style={{
-          alignItems: 'center',
-          marginBottom: 10,
-          marginLeft: 20,
-        }}
-      >
+      <View style={styles.lottieContainer}>
         <AnimatedLottieView
-          style={{
-            width: 50,
-            height: 50,
-            justifyContent: 'center',
-          }}
+          style={styles.lottie}
           source={partyLottie}
           progress={progress}
           loop

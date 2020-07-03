@@ -4,19 +4,33 @@ import useIncrementState from './useincrementState';
 import { CancelSaveButtonCombo } from '../../UI';
 
 export default function PlayersWins({
-  playerOneName, playerTwoName, restartGame, endGame,
+  playerOneName,
+  playerTwoName,
+  restartGame,
+  endGame,
 }) {
   const [playerOneWin, getIncrementedPlayerOneWin] = useIncrementState();
   const [playerTwoWin, getIncrementedPlayerTwoWin] = useIncrementState();
 
   function endGameFn() {
-    const isPlayerOneWinner: boolean = playerOneWin > playerTwoWin;
-    const winnerInformation: { wins: number, winnerName: string } = {
-      wins: isPlayerOneWinner ? playerOneWin : playerTwoWin,
-      winnerName: isPlayerOneWinner ? playerOneName : playerTwoName,
+    let winnerInformation: { wins: number, winnerName: string, isDraw: boolean } = {
+      wins: playerOneWin,
+      winnerName: '',
+      isDraw: true,
     };
+
+    const isPlayerOneWinner: boolean = playerOneWin > playerTwoWin;
+    const isDraw: boolean = playerOneWin === playerTwoWin;
+    if (!isDraw) {
+      winnerInformation = {
+        wins: isPlayerOneWinner ? playerOneWin : playerTwoWin,
+        winnerName: isPlayerOneWinner ? playerOneName : playerTwoName,
+        isDraw: false,
+      };
+    }
     endGame(winnerInformation);
   }
+
   return (
     <>
       <PlayerWin

@@ -11,7 +11,7 @@ export default function PlayersWinAddScreen({
   function restartGame() {
     navigate('PlayersInformationScreen');
   }
-  function endGame(winnerInformation: { wins: number, winnerName: string }) {
+  function endGame(winnerInformation: { wins: number, winnerName: string, isDraw: boolean }) {
     navigate('WinnerScreen', winnerInformation);
   }
   return (
