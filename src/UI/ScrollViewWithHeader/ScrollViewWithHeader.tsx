@@ -14,6 +14,7 @@ export default function ScrollViewWithHeader({
 }: TScrollViewWithHeader) {
   return (
     <ScrollView
+      keyboardShouldPersistTaps="always"
       style={styles.scrollViewStyle}
       contentContainerStyle={styles.scrollViewContentContainerStyle}
     >

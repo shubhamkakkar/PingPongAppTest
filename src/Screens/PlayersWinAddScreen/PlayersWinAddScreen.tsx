@@ -1,6 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
-import { CancelSaveButtonCombo, ScrollViewWithHeader } from '../../UI';
+import { ScrollViewWithHeader } from '../../UI';
 import styles from './playersWinAddScreenStyleSheet';
 import { PlayersWins } from '../../Components';
 
@@ -11,17 +11,15 @@ export default function PlayersWinAddScreen({
   function restartGame() {
     navigate('PlayersInformationScreen');
   }
+  function endGame(winnerInformation: { wins: number, winnerName: string }) {
+    navigate('WinnerScreen', winnerInformation);
+  }
   return (
     <ScrollViewWithHeader title="Add Wins">
       <View style={styles.container}>
         <View style={styles.winLeaderBoardContainer}>
-          <PlayersWins {...params} />
+          <PlayersWins {...{ restartGame, endGame, ...params }} />
         </View>
-        <CancelSaveButtonCombo
-          dontShowCancelFn
-          saveFn={restartGame}
-          saveButtonTitle="Restart Game"
-        />
       </View>
     </ScrollViewWithHeader>
   );
