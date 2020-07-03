@@ -5,8 +5,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   containerInputs: {
-    flex: 2
-  }
+    flex: 2,
+  },
 });
 
 export default styles;

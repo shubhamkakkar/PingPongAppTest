@@ -26,7 +26,10 @@ export default function PlayersInformationScreen({ navigation: { navigate } }) {
     if (errorFields.length) {
       Alert.alert('Error', `Required: ${errorFields.join()}`);
     } else {
-      navigate('PlayersWinAddScreen', { playerOneName: playerOneName.trim(), playerTwoName: playerTwoName.trim() });
+      navigate('PlayersWinAddScreen', {
+        playerOneName: playerOneName.trim(),
+        playerTwoName: playerTwoName.trim(),
+      });
     }
   }
 
@@ -34,17 +37,20 @@ export default function PlayersInformationScreen({ navigation: { navigate } }) {
     <ScrollViewWithHeader title="Players">
       <View style={styles.container}>
         <View style={styles.containerInputs}>
-          <PlayerInformationAdd {...{
-            name: playerOneName,
-            setName: setPlayerOneName,
-            title: 'One',
-          }}
+          <PlayerInformationAdd
+            {...{
+              name: playerOneName,
+              setName: setPlayerOneName,
+              title: 'One',
+              autofocus: true,
+            }}
           />
-          <PlayerInformationAdd {...{
-            name: playerTwoName,
-            setName: setPlayerTwoName,
-            title: 'Two',
-          }}
+          <PlayerInformationAdd
+            {...{
+              name: playerTwoName,
+              setName: setPlayerTwoName,
+              title: 'Two',
+            }}
           />
         </View>
         <CancelSaveButtonCombo

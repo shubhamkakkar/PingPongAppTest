@@ -23,7 +23,8 @@ export const styles = StyleSheet.create({
     marginRight: 5,
   },
   saveButton: {
-    marginLeft: 5, backgroundColor: theme.blueShadeBasePrimary
+    marginLeft: 5,
+    backgroundColor: theme.blueShadeBasePrimary,
   },
   saveButtonTitle: { color: 'white' },
   cancelButtonTitle: {

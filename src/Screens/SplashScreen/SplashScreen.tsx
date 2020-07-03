@@ -32,9 +32,7 @@ export default function SplashScreen({ navigation: { navigate } }) {
         />
       </View>
       <View style={styles.appNameContainer}>
-        <Text style={styles.appNameText}>
-          Ping Pong
-        </Text>
+        <Text style={styles.appNameText}>Ping Pong</Text>
       </View>
     </View>
   );

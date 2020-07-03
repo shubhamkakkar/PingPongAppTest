@@ -3,12 +3,12 @@ import { TouchableOpacity, Text, View } from 'react-native';
 import { styles } from './cancelSaveButtonComboStyleSheet';
 
 type TCancelSaveButtonCombo = {
-    cancelFn?: () => void;
-    saveFn: () => void;
-    cancelButtonTitle?: string;
-    saveButtonTitle?: string;
-    dontShowCancelFn?: boolean;
-}
+  cancelFn?: () => void;
+  saveFn: () => void;
+  cancelButtonTitle?: string;
+  saveButtonTitle?: string;
+  dontShowCancelFn?: boolean;
+};
 
 export default function CancelSaveButtonCombo({
   cancelFn,
@@ -16,22 +16,21 @@ export default function CancelSaveButtonCombo({
   saveButtonTitle,
   cancelButtonTitle,
   dontShowCancelFn = false,
-}:TCancelSaveButtonCombo) {
+}: TCancelSaveButtonCombo) {
   return (
     <View style={styles.row}>
       {!dontShowCancelFn && cancelFn && (
-      <TouchableOpacity
-        style={[styles.buttonCommon, styles.rightMargin]}
-        onPress={cancelFn}
-      >
-        <Text style={styles.cancelButtonTitle}>{cancelButtonTitle || 'Cancel'}</Text>
-      </TouchableOpacity>
+        <TouchableOpacity
+          style={[styles.buttonCommon, styles.rightMargin]}
+          onPress={cancelFn}
+        >
+          <Text style={styles.cancelButtonTitle}>
+            {cancelButtonTitle || 'Cancel'}
+          </Text>
+        </TouchableOpacity>
       )}
       <TouchableOpacity
-        style={[
-          styles.buttonCommon,
-          styles.saveButton,
-        ]}
+        style={[styles.buttonCommon, styles.saveButton]}
         onPress={saveFn}
       >
         <Text style={styles.saveButtonTitle}>{saveButtonTitle || 'Save'}</Text>

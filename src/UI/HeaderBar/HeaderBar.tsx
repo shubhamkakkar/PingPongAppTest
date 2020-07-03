@@ -3,8 +3,8 @@ import { View, Text } from 'react-native';
 import styles from './headerBarStyleSheet';
 
 type THeaderBar = {
-    title: string
-}
+  title: string;
+};
 export default function HeaderBar({ title }: THeaderBar) {
   return (
     <View style={styles.headerBarContainrer}>
