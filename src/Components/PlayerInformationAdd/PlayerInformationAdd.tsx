@@ -7,7 +7,7 @@ type TPlayerInformationAdd = {
   title: string;
   name: string;
   setName: Dispatch<SetStateAction<string>>;
-    autofocus?: boolean
+  autofocus?: boolean;
 };
 
 export default function PlayerInformationAdd({

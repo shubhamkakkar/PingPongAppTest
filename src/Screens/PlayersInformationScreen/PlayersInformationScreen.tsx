@@ -3,8 +3,11 @@ import { Alert, View } from 'react-native';
 import { CancelSaveButtonCombo, ScrollViewWithHeader } from '../../UI';
 import { PlayerInformationAdd } from '../../Components';
 import styles from './playersInformationScreenStyleSheet';
+import { TPlayersInformationScreenNavigation } from '../../Navigation/navigationTypes';
 
-export default function PlayersInformationScreen({ navigation: { navigate } }) {
+export default function PlayersInformationScreen({
+  navigation: { navigate },
+}: TPlayersInformationScreenNavigation) {
   const [playerOneName, setPlayerOneName] = useState<string>('');
   const [playerTwoName, setPlayerTwoName] = useState<string>('');
 

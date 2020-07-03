@@ -9,11 +9,7 @@
     "moduleResolution": "node",
     "noEmit": true,
     "strict": true,
-    "target": "esnext",
-    "extends": [
-      "tslint:latest",
-      "tslint-config-prettier"
-    ]
+    "target": "esnext"
   },
   "exclude": [
     "node_modules",

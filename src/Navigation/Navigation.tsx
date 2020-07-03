@@ -9,7 +9,10 @@ import {
   WinnerScreen,
 } from '../Screens';
 
-const Stack = createStackNavigator();
+// eslint-disable-next-line no-unused-vars
+import { TypeStackParamList } from './navigationTypes';
+
+const Stack = createStackNavigator<TypeStackParamList>();
 export default function Navigation() {
   return (
     <NavigationContainer>
@@ -27,10 +30,7 @@ export default function Navigation() {
           name="PlayersWinAddScreen"
           component={PlayersWinAddScreen}
         />
-        <Stack.Screen
-          name="WinnerScreen"
-          component={WinnerScreen}
-        />
+        <Stack.Screen name="WinnerScreen" component={WinnerScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

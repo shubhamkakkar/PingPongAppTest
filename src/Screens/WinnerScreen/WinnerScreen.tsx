@@ -5,8 +5,12 @@ import { CancelSaveButtonCombo, ScrollViewWithHeader } from '../../UI';
 import styles from './winnerScreenStyleSheet';
 // @ts-ignore
 import partyLottie from '../../assets/partyLottie.json';
+import { TWinnerScreenNavigation } from '../../Navigation/navigationTypes';
 
-export default function WinnerScreen({ route: { params }, navigation: { navigate } }) {
+export default function WinnerScreen({
+  route: { params },
+  navigation: { navigate },
+}: TWinnerScreenNavigation) {
   const { wins, winnerName, isDraw } = params;
   function restartGame() {
     navigate('PlayersInformationScreen');
@@ -17,10 +21,10 @@ export default function WinnerScreen({ route: { params }, navigation: { navigate
         <View style={styles.container}>
           <View>
             <Text style={styles.playerNameTitle}>
-              { isDraw ? 'It is a draw' : `Winner : ${winnerName}` }
+              {isDraw ? 'It is a draw' : `Winner : ${winnerName}`}
             </Text>
           </View>
-          { !isDraw && (
+          {!isDraw && (
             <>
               <View style={styles.lottieContainer}>
                 <AnimatedLottieView
@@ -30,13 +34,10 @@ export default function WinnerScreen({ route: { params }, navigation: { navigate
                   loop
                 />
               </View>
-              <Text style={styles.winsText}>
-                Wins: {wins}
-              </Text>
+              <Text style={styles.winsText}>Wins: {wins}</Text>
             </>
-          ) }
+          )}
         </View>
-
         <CancelSaveButtonCombo
           dontShowCancelFn
           saveFn={restartGame}

@@ -3,17 +3,30 @@ import PlayerWin from './PlayerWin/PlayerWin';
 import useIncrementState from './useincrementState';
 import { CancelSaveButtonCombo } from '../../UI';
 
+export type TEndGameProps = {
+  wins: number;
+  winnerName: string;
+  isDraw: boolean;
+};
+
+type TPlayerWins = {
+  playerOneName: string;
+  playerTwoName: string;
+  restartGame: () => void;
+  endGame: (endGameProps: TEndGameProps) => void;
+};
+
 export default function PlayersWins({
   playerOneName,
   playerTwoName,
   restartGame,
   endGame,
-}) {
+}: TPlayerWins) {
   const [playerOneWin, getIncrementedPlayerOneWin] = useIncrementState();
   const [playerTwoWin, getIncrementedPlayerTwoWin] = useIncrementState();
 
   function endGameFn() {
-    let winnerInformation: { wins: number, winnerName: string, isDraw: boolean } = {
+    let winnerInformation: TEndGameProps = {
       wins: playerOneWin,
       winnerName: '',
       isDraw: true,

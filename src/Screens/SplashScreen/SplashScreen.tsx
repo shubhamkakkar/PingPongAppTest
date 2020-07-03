@@ -5,8 +5,11 @@ import styles from './splashScreenStyleSheet';
 // @ts-ignore
 import pingPongLottie from '../../assets/pingPongLottie.json';
 import theme from '../../theme';
+import { TSplashScreenNavigation } from '../../Navigation/navigationTypes';
 
-export default function SplashScreen({ navigation: { navigate } }) {
+export default function SplashScreen({
+  navigation: { navigate },
+}: TSplashScreenNavigation) {
   useEffect(() => {
     setTimeout(() => {
       navigate('PlayersInformationScreen');
