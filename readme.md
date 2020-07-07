@@ -10,3 +10,5 @@ Steps
   6.1 run `yarn start` followed by `yarn ios` in another terminal window // use respective npm commands if not using yarn
   
   
+PS:
+` I don't own a mac, hence this app will run on android only, if you wish to operate a similar functionality on iOS,let me know, I will change provide you with "expo" implementation for the same `
